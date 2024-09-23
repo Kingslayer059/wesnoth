@@ -294,7 +294,7 @@ static int intf_execute(lua_State* L)
 			lua_pushstring(L, "cannot execute function with parameters");
 			return 2;
 		}
-		if(!lua_isnil(L, EVT)) data["name"] = luaL_checkstring(L, 3);
+		if(!lua_isnil(L, EVT)) data["name"] = luaL_checkstring(L, EVT);
 		lua_pushvalue(L, FUNC);
 		data["ref"] = luaL_ref(L, LUA_REGISTRYINDEX);
 		std::shared_ptr<lua_context_backend>* context = static_cast<std::shared_ptr<lua_context_backend>*>(lua_touserdata(L, EXEC));
